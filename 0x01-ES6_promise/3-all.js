@@ -6,7 +6,7 @@ export default function handleProfileSignup() {
   const uploadPhotoResponse = uploadPhoto();
   const createUserResponse = createUser();
   // Promise.all is used to handle multiple promise at a time
-  Promise.all([uploadPhotoResponse, createUserResponse])
+  return Promise.all([uploadPhotoResponse, createUserResponse])
     .then(([response1, response2]) => {
       const { body } = response1;
       const { firstName, lastName } = response2;
