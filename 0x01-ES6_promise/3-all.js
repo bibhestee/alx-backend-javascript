@@ -1,7 +1,8 @@
-import { uploadPhoto, createUser } from './utils';
+import utils from './utils';
 
 export default function handleProfileSignup() {
   try {
+    const { uploadPhoto, createUser } = utils;
     // Extract promise response from the functions
     const uploadPhotoResponse = uploadPhoto();
     const createUserResponse = createUser();
