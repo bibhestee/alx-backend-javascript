@@ -11,6 +11,7 @@ export default function handleProfileSignup() {
       const { body } = response1;
       const { firstName, lastName } = response2;
       console.log(`${body} ${firstName} ${lastName}`);
+      return [response1, response2];
     })
     .catch(() => console.log('Signup system offline'));
 }
