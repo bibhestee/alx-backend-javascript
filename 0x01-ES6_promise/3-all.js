@@ -1,7 +1,6 @@
-import utils from './utils';
+import { uploadPhoto, createUser } from './utils';
 
 export default function handleProfileSignup() {
-  const { uploadPhoto, createUser } = utils;
   // Extract promise response from the functions
   const uploadPhotoResponse = uploadPhoto();
   const createUserResponse = createUser();
@@ -11,7 +10,6 @@ export default function handleProfileSignup() {
       const { body } = response1;
       const { firstName, lastName } = response2;
       console.log(`${body} ${firstName} ${lastName}`);
-      return [response1, response2];
     })
     .catch(() => console.log('Signup system offline'));
 }
