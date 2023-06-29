@@ -1,3 +1,12 @@
+const checkArray = (array) => {
+  if (!Array.isArray(array)) return false;
+
+  for (const element of array) {
+    if (typeof (element) !== 'string') return false;
+  }
+  return true;
+};
+
 export default class HolbertonCourse {
   constructor(name, length, students) {
     // eslint-disable-next-line no-underscore-dangle
@@ -5,7 +14,7 @@ export default class HolbertonCourse {
     // eslint-disable-next-line no-underscore-dangle
     if (typeof (length) === 'number') { this._length = length; }
     // eslint-disable-next-line no-underscore-dangle
-    if (Array.isArray(students)) { this._students = students; }
+    if (checkArray(students)) { this._students = students; }
   }
 
   // Getter and setter for name attribute
@@ -32,6 +41,6 @@ export default class HolbertonCourse {
 
   set students(value) {
     // eslint-disable-next-line no-underscore-dangle
-    if (Array.isArray(value) === false) { throw new TypeError('Students must be an array'); } else { this._students = value; }
+    if (!checkArray(value)) { throw new TypeError('Students must be an array of Strings'); } else { this._students = value; }
   }
 }
