@@ -12,7 +12,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
           delete result.reason;
           result;
         }
-        results;
       });
+      results;
     });
 }
