@@ -1,4 +1,4 @@
-import Currency from './3-currency';
+// import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
@@ -25,7 +25,7 @@ export default class Pricing {
   // Setter for currency
   set currency(value) {
     // eslint-disable-next-line no-underscore-dangle
-    if (typeof value === 'object') {this._currency = value; } else { throw new TypeError('Currency must be a class Currency'); }
+    if (typeof value === 'object') { this._currency = value; } else { throw new TypeError('Currency must be a class Currency'); }
   }
 
   displayFullPrice() {
