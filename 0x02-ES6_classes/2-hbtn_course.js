@@ -10,11 +10,11 @@ const checkArray = (array) => {
 export default class HolbertonCourse {
   constructor(name, length, students) {
     // eslint-disable-next-line no-underscore-dangle
-    if (typeof (name) === 'string') { this._name = name; }
+    if (typeof (name) === 'string') { this._name = name; } else { throw new TypeError('Name must be a string'); }
     // eslint-disable-next-line no-underscore-dangle
-    if (typeof (length) === 'number') { this._length = length; }
+    if (typeof (length) === 'number') { this._length = length; } else { throw new TypeError('Length must be a number'); }
     // eslint-disable-next-line no-underscore-dangle
-    if (checkArray(students)) { this._students = students; }
+    if (checkArray(students)) { this._students = students; } else { throw new TypeError('Students must be an array of strings'); }
   }
 
   // Getter and setter for name attribute
