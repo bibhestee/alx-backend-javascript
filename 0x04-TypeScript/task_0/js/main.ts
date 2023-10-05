@@ -21,8 +21,20 @@ const student2: Student = {
 
 const studentsList = [student1, student2];
 
-console.log('Firstname', 'Location');
+const table = document.getElementById('table');
+const tbody = document.getElementById('tableBody');
 
-studentsList.forEach((student) => {
-    console.log(student.firstName, student.lastName)
-})
+studentsList.forEach(student => {
+    const row = document.createElement('tr');
+    
+    const col1 = document.createElement('td');
+    col1.textContent = student.firstName;
+
+    const col2 = document.createElement('td');
+    col2.textContent = student.location;
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+
+    tbody.appendChild(row);
+});
