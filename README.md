@@ -6,3 +6,5 @@
 - [0x01-ES6_promise](alx-backend-javascript/0x01-ES6_promise)
 - [0x02-ES6_classes](alx-backend-javascript/0x02-ES6_classes)
 - [0x03-ES6_data_manipulation](alx-backend-javascript/0x03-ES6_data_manipulation)
+- [0x04-TypeScript](alx-backend-javascript/0x04-TypeScript)
+
