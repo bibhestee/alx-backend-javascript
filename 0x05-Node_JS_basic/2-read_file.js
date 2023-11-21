@@ -31,7 +31,7 @@ function countStudents(path) {
         const firstname = studentField[0];
         const field = studentField[3];
         if (field in fieldData) {
-          fieldData[field] = fieldData[field].concat(firstname);
+          fieldData[field] = fieldData[field].concat(` ${firstname}`);
         } else {
           fieldData[field] = [firstname];
         }
