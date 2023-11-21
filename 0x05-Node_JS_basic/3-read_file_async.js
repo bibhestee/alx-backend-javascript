@@ -13,7 +13,7 @@
     Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES
  * CSV file can contain empty lines (at the end) - and they are not a valid student!
 * */
-const fs = require('fs/promises');
+const fs = require('fs');
 
 async function countStudents(path) {
   /*
@@ -24,7 +24,7 @@ async function countStudents(path) {
   const encoding = 'utf-8';
   let data = '';
   try {
-    data = await fs.readFile(path, encoding);
+    data = await fs.promises.readFile(path, encoding);
   } catch (err) {
     throw new Error('Cannot load the database');
   }
