@@ -13,10 +13,10 @@ const app = express();
 
 app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
-})
+}) 
 
-app.listen(1245, '127.0.0.1', () => {
+app.listen(1245, () => {
   console.log('app is running');
-})
+};
 
 module.exports = app;
