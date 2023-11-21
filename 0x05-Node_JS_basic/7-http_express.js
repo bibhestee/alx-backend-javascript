@@ -11,6 +11,7 @@
  * CSV file can contain empty lines (at the end) - and they are not a valid student!
 * */
 const express = require('express');
+
 const app = express();
 const fs = require('fs');
 
@@ -52,7 +53,6 @@ app.get('/students', async (req, res) => {
   fieldList.forEach((field) => {
     res.write(`Number of students in ${field}: ${fieldData[field].length}. List: ${fieldData[field]}\n`);
   });
-}
   return res.send();
 });
 
