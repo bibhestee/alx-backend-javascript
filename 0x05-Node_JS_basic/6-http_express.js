@@ -17,6 +17,6 @@ app.get('/', (req, res) => {
 
 app.listen(1245, () => {
   console.log('app is running');
-};
+});
 
 module.exports = app;
