@@ -15,40 +15,39 @@
 * */
 const fs = require('fs/promises');
 
-function countStudents(path) {
+async function countStudents(path) {
   /*
      * CountStudents
      *@param: path - path to the database file
      *
      */
-  return new Promise((resolve, reject) => {
-    const encoding = 'utf-8';
-    fs.readFile(path, encoding).then((data) => {
-      // Log the Number of students to the console: NUMBER_OF_STUDENTS
-      const rows = data.split('\n').slice(1);
-      console.log(`Number of students: ${rows.length - 1}`);
-      const fieldData = {};
-      // Log the number of students in each field in provided format
-      rows.forEach((student) => {
-        if (student) {
-          const studentField = student.split(',');
-          const firstname = studentField[0];
-          const field = studentField[3];
-          if (field in fieldData) {
-            fieldData[field] = fieldData[field].concat(` ${firstname}`);
-          } else {
-            fieldData[field] = [firstname];
-          }
-        }
-      });
-      const fieldList = Object.keys(fieldData);
-      fieldList.forEach((field) => {
-        console.log(`Number of students in ${field}: ${fieldData[field].length}. List: ${fieldData[field]}`);
-      });
-      resolve('done');
-    }).catch(() => {
-      reject(Error('Cannot load the database'));
-    });
+  const encoding = 'utf-8';
+  let data = '';
+  try {
+    data = await fs.readFile(path, encoding);
+  } catch (err) {
+    throw new Error('Cannot load the database');
+  }
+  // Log the Number of students to the console: NUMBER_OF_STUDENTS
+  const rows = data.split('\n').slice(1);
+  console.log(`Number of students: ${rows.length - 1}`);
+  const fieldData = {};
+  // Log the number of students in each field in provided format
+  rows.forEach((student) => {
+    if (student) {
+      const studentField = student.split(',');
+      const firstname = studentField[0];
+      const field = studentField[3];
+      if (field in fieldData) {
+        fieldData[field] = fieldData[field].concat(` ${firstname}`);
+      } else {
+        fieldData[field] = [firstname];
+      }
+    }
+  });
+  const fieldList = Object.keys(fieldData);
+  fieldList.forEach((field) => {
+    console.log(`Number of students in ${field}: ${fieldData[field].length}. List: ${fieldData[field]}`);
   });
 }
 
