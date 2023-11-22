@@ -59,7 +59,7 @@ class StudentsController {
   }
 
   static async getAllStudentsByMajor(req, res) {
-    const major = req.params.major;
+    const { major } = req.params;
     const filename = process.argv[2];
     if (major !== 'CS' && major !== 'SWE') {
       return res.status(500).send('Major parameter must be CS or SWE');
